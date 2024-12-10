@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { Canvas } from './Canvas'
 import { Path } from './Path'
 
-const letters: readonly string[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?:;<>\\-_,.+=()/'*".split("")
+const letters: readonly string[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?:;<>\\-_,.+=()/'*".split("")
 
 function toCpp(paths: Readonly<Record<string, Path>>): string {
   let cpp = "std::unordered_map<char, std::vector<Vec2>> glyphs{\n"
@@ -30,7 +30,7 @@ function App() {
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
       if (e.key === "v") {
-        navigator.clipboard.readText().then(JSON.parse).then(setPaths)
+        navigator.clipboard.readText().then(JSON.parse).then(paths => setPaths(oldPaths => ({ ...oldPaths, ...paths })))
       }
       else if (e.key === "c") {
         const json = JSON.stringify(paths)
