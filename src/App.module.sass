@@ -1,0 +1,51 @@
+.root
+  display: flex
+  flex-direction: row
+  font-family: sans-serif
+  user-select: none
+  height: 100vh
+  gap: 10px
+
+  .selector
+    display: flex
+    flex-direction: column
+    gap: 5px
+    flex: 1 0 0px
+    padding: 10px
+    padding-right: 0
+    overflow-y: scroll
+
+    .letter
+      background: #eaeaea
+      align-items: center
+      padding: 10px
+      display: flex
+      gap: 15px
+      cursor: pointer
+
+      .text
+        flex: 1 0 0px
+        line-height: 1
+
+      .length
+        font-size: 0.5em
+
+      .canvas
+        flex: 0 0 auto
+
+      &:hover
+        background: #d6d6d6
+
+      &:active
+        background: #c9c9c9
+
+      &.active
+        background: #82dcff
+
+        &:active
+          background: #6cbddd
+
+  .editor
+    flex: 2 0 0px
+    padding: 10px
+    padding-left: 0
